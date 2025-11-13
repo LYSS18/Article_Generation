@@ -1,0 +1,84 @@
+{
+  "group_1": {
+    "name": "Group 1 - Cultural Communication Basics",
+    "topics": [
+      {
+        "keyword": "cultural values",
+        "description": "Explore the fundamental beliefs and principles that shape different cultures"
+      },
+      {
+        "keyword": "cross-gender communication",
+        "description": "Examine communication patterns and differences between genders across cultures"
+      },
+      {
+        "keyword": "cultural-loaded word",
+        "description": "Analyze words and phrases that carry specific cultural meanings and connotations"
+      },
+      {
+        "keyword": "time language",
+        "description": "Discuss how different cultures perceive and communicate about time"
+      }
+    ]
+  },
+  "group_2": {
+    "name": "Group 2 - Communication Channels",
+    "topics": [
+      {
+        "keyword": "intercultural communication",
+        "description": "Explore communication between people from different cultural backgrounds"
+      },
+      {
+        "keyword": "friend circle",
+        "description": "Examine how social circles and friendships vary across cultures"
+      },
+      {
+        "keyword": "space language",
+        "description": "Discuss the use of personal space and physical distance in communication"
+      },
+      {
+        "keyword": "non-verbal communication",
+        "description": "Analyze communication without words",
+        "subtopics": [
+          {
+            "keyword": "gesture",
+            "description": "Hand and arm movements used in communication"
+          },
+          {
+            "keyword": "posture",
+            "description": "Body positioning and stance in communication"
+          },
+          {
+            "keyword": "facial expression",
+            "description": "Emotions and messages conveyed through facial features"
+          },
+          {
+            "keyword": "eye contact",
+            "description": "The role of gaze and visual connection in communication"
+          }
+        ]
+      }
+    ]
+  },
+  "group_3": {
+    "name": "Group 3 - Cultural Dynamics",
+    "topics": [
+      {
+        "keyword": "cultural shock",
+        "description": "Explore the experience of encountering unfamiliar cultural practices"
+      },
+      {
+        "keyword": "individualism/collectivism",
+        "description": "Compare cultures that prioritize individual vs. group interests"
+      },
+      {
+        "keyword": "stereotype",
+        "description": "Examine oversimplified beliefs about cultural groups"
+      },
+      {
+        "keyword": "hospitality",
+        "description": "Discuss how different cultures welcome and treat guests"
+      }
+    ]
+  }
+}
+
