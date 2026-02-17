@@ -127,47 +127,34 @@ MODEL_NAME=gpt-4o-mini
 
 本项目提供两种界面：**GUI图形界面**（推荐）和**命令行界面**
 
-#### 🎨 GUI图形界面（推荐）
+#### 🎨 GUI图形界面（推荐，默认模式）
 
-**方式1：快速启动**
-```
-双击项目根目录的 "快速启动GUI.bat"
-```
-
-**方式2：使用scripts文件夹**
-```
-双击 "scripts\run_gui.bat"
-```
-
-**方式3：命令行运行**
-```bash
-conda activate py10
-python main_gui.py
-```
-
-#### 💻 命令行界面
-
-**方式1：快速启动**
-```
-双击项目根目录的 "快速启动.bat"
-```
-
-**方式2：使用scripts文件夹**
+**方式1：Windows批处理启动**
 ```
 双击 "scripts\run.bat"
 ```
 
-**方式3：命令行运行**
+**方式2：命令行运行**
 ```bash
 conda activate py10
 python main.py
+```
+
+#### 💻 命令行界面
+
+**命令行运行**
+```bash
+conda activate py10
+python main.py --cli
 ```
 
 ## 💡 使用说明
 
 ### 🎨 GUI界面使用（推荐）
 
-**启动程序：** 双击 `快速启动GUI.bat`
+**启动程序：**
+- Windows: 双击 `scripts\run.bat`
+- 命令行: `python main.py`
 
 **操作步骤：**
 
@@ -189,7 +176,7 @@ python main.py
 
 ### 💻 命令行界面使用
 
-**启动程序：** 双击 `快速启动.bat`
+**启动程序：** `python main.py --cli`
 
 **操作步骤：**
 
@@ -370,7 +357,7 @@ Article_Generation/
 │   ├── __init__.py
 │   ├── generator.py        # 核心生成器
 │   └── prompts.py          # CET-6提示词模板
-├── ui/                     # UI界面文件夹（新增）
+├── ui/                     # UI界面文件夹
 │   ├── __init__.py         # UI模块初始化
 │   ├── main_window.py      # 主窗口类
 │   ├── components.py       # UI组件
@@ -379,11 +366,8 @@ Article_Generation/
 │   └── README.md           # UI模块说明
 ├── output/                 # 输出文件夹
 ├── requirements.txt        # Python依赖
-├── main.py                 # 命令行主程序
-├── main_gui.py             # GUI主程序（新增）
+├── main.py                 # 统一启动入口（默认GUI，支持--cli参数）
 ├── test_connection.py      # 连接测试工具
-├── 快速启动.bat            # 命令行快速启动
-├── 快速启动GUI.bat         # GUI快速启动（新增）
 └── README.md               # 本文档
 ```
 
