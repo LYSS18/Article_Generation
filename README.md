@@ -14,6 +14,8 @@
 - ✅ 支持自定义关键词
 - ✅ 文章长度约200词
 - ✅ 自动保存到文件
+- ✅ **现代化GUI界面**（新增）
+- ✅ **命令行界面**（原有）
 
 ## 📋 环境要求
 
@@ -123,16 +125,39 @@ MODEL_NAME=gpt-4o-mini
 
 ### 第四步：运行程序
 
-#### 方式1：快速启动（最简单）
+本项目提供两种界面：**GUI图形界面**（推荐）和**命令行界面**
 
-双击项目根目录的 `快速启动.bat`
+#### 🎨 GUI图形界面（推荐）
 
-#### 方式2：使用scripts文件夹
+**方式1：快速启动**
+```
+双击项目根目录的 "快速启动GUI.bat"
+```
 
-双击 `scripts\run.bat`
+**方式2：使用scripts文件夹**
+```
+双击 "scripts\run_gui.bat"
+```
 
-#### 方式3：命令行运行
+**方式3：命令行运行**
+```bash
+conda activate py10
+python main_gui.py
+```
 
+#### 💻 命令行界面
+
+**方式1：快速启动**
+```
+双击项目根目录的 "快速启动.bat"
+```
+
+**方式2：使用scripts文件夹**
+```
+双击 "scripts\run.bat"
+```
+
+**方式3：命令行运行**
 ```bash
 conda activate py10
 python main.py
@@ -140,16 +165,33 @@ python main.py
 
 ## 💡 使用说明
 
-### 启动程序
+### 🎨 GUI界面使用（推荐）
 
-**推荐方式：** 双击项目根目录的 `快速启动.bat`
+**启动程序：** 双击 `快速启动GUI.bat`
 
-**其他方式：**
+**操作步骤：**
 
-- 双击 `scripts\run.bat`
-- 或命令行运行：`conda activate py10 && python main.py`
+1. **等待初始化** - 程序启动后会自动初始化生成器
+2. **输入关键词** - 在"主题关键词"输入框中输入主题（如：cultural shock）
+3. **添加描述**（可选）- 在"主题描述"输入框中添加详细描述
+4. **生成文章** - 点击"🚀 生成文章"按钮
+5. **查看结果** - 文章将显示在下方的输出区域
+6. **保存文章** - 点击"💾 保存文章"按钮，选择保存位置
+7. **清空输出** - 点击"🗑️ 清空"按钮清空输出区域
 
-### 操作步骤
+**界面特性：**
+- ✅ 实时状态显示
+- ✅ 加载动画提示
+- ✅ 字数统计
+- ✅ 自动保存对话框
+- ✅ 错误提示
+- ✅ 现代化设计
+
+### 💻 命令行界面使用
+
+**启动程序：** 双击 `快速启动.bat`
+
+**操作步骤：**
 
 运行程序后，会看到以下菜单：
 
@@ -269,6 +311,35 @@ pip install -r requirements.txt
 - 调整 `TEMPERATURE` 参数（0.5-0.9之间）
 - 提供更具体的主题词
 
+### 问题6：GUI界面无法启动
+
+**可能原因：**
+- tkinter模块未安装（通常随Python一起安装）
+
+**解决方案：**
+
+**Windows:**
+```bash
+# tkinter通常已包含在Python中，如果缺失：
+# 重新安装Python，确保勾选"tcl/tk and IDLE"选项
+```
+
+**Linux:**
+```bash
+# Ubuntu/Debian
+sudo apt-get install python3-tk
+
+# Fedora
+sudo dnf install python3-tkinter
+```
+
+**macOS:**
+```bash
+# tkinter通常已包含在Python中
+# 如果缺失，重新安装Python
+brew install python-tk
+```
+
 ## 💰 费用说明
 
 ### 硅基流动
@@ -286,23 +357,33 @@ pip install -r requirements.txt
 ## 📁 项目结构
 
 ```
-kuawenhua/
+Article_Generation/
 ├── config/                 # 配置文件夹
 │   ├── .env                # 环境变量（需自己配置）
 │   ├── .env.example        # 环境变量示例
 │   └── topics.json         # 主题配置（预设主题）
 ├── scripts/                # 脚本文件夹
 │   ├── setup.bat           # 环境配置脚本（Windows）
-│   └── run.bat             # 运行脚本（Windows）
+│   ├── run.bat             # 命令行运行脚本
+│   └── run_gui.bat         # GUI运行脚本
 ├── src/                    # 源代码文件夹
 │   ├── __init__.py
 │   ├── generator.py        # 核心生成器
 │   └── prompts.py          # CET-6提示词模板
+├── ui/                     # UI界面文件夹（新增）
+│   ├── __init__.py         # UI模块初始化
+│   ├── main_window.py      # 主窗口类
+│   ├── components.py       # UI组件
+│   ├── themes.py           # 主题配置
+│   ├── utils.py            # UI工具函数
+│   └── README.md           # UI模块说明
 ├── output/                 # 输出文件夹
 ├── requirements.txt        # Python依赖
-├── main.py                 # 主程序
+├── main.py                 # 命令行主程序
+├── main_gui.py             # GUI主程序（新增）
 ├── test_connection.py      # 连接测试工具
-├── 快速启动.bat            # 快速启动脚本（推荐）
+├── 快速启动.bat            # 命令行快速启动
+├── 快速启动GUI.bat         # GUI快速启动（新增）
 └── README.md               # 本文档
 ```
 
@@ -311,6 +392,7 @@ kuawenhua/
 - **Python 3.10+**
 - **OpenAI SDK** - 兼容多种API
 - **python-dotenv** - 环境变量管理
+- **Tkinter** - GUI界面（Python内置）
 
 ## 📚 推荐主题词
 

@@ -1,12 +1,53 @@
 """
-英文文章生成器 - 主程序入口
+英文文章生成器 - 统一启动入口
 Author: Article Generator
 Description: 基于AI模型生成跨文化交流主题的英文文章
+
+使用方法：
+    python main.py          # 启动GUI界面（默认）
+    python main.py --cli    # 启动命令行界面
 """
 
 import os
 import sys
 from src.generator import ArticleGenerator
+
+
+def run_gui():
+    """启动GUI界面"""
+    try:
+        import tkinter as tk
+        from ui.main_window import ArticleGeneratorApp
+
+        # 创建根窗口
+        root = tk.Tk()
+
+        # 创建应用程序
+        app = ArticleGeneratorApp(root)
+
+        # 运行应用程序
+        app.run()
+
+    except ImportError as e:
+        print("=" * 60)
+        print("❌ 错误：无法启动GUI界面")
+        print("=" * 60)
+        print(f"\n{str(e)}\n")
+
+        if "tkinter" in str(e).lower():
+            print("tkinter模块未安装。")
+            print("\n解决方案：")
+            print("  Windows: tkinter通常随Python一起安装")
+            print("  Linux:   sudo apt-get install python3-tk")
+            print("  macOS:   brew install python-tk")
+        else:
+            print("请确保已安装所有依赖：")
+            print("  pip install -r requirements.txt")
+
+        print("\n提示：你可以使用命令行模式：")
+        print("  python main.py --cli")
+        print("\n" + "=" * 60)
+        sys.exit(1)
 
 
 def print_banner():
@@ -34,21 +75,21 @@ def check_env_file():
     return True
 
 
-def main():
-    """主函数"""
+def run_cli():
+    """启动命令行界面"""
     print_banner()
-    
+
     # 检查环境配置
     if not check_env_file():
         sys.exit(1)
-    
+
     try:
         # 初始化生成器
         print("🔧 Initializing Article Generator...")
         generator = ArticleGenerator()
         print(f"✓ Using model: {generator.model_name}")
         print(f"✓ Target article length: {generator.article_length} words")
-        
+
         # 显示菜单
         print("\n" + "="*60)
         print("Please select an option:")
@@ -88,10 +129,21 @@ def main():
 
         else:
             print("❌ Invalid choice!")
-    
+
     except Exception as e:
         print(f"\n❌ Error: {str(e)}")
         sys.exit(1)
+
+
+def main():
+    """主函数 - 根据参数选择启动模式"""
+    # 检查命令行参数
+    if len(sys.argv) > 1 and sys.argv[1] in ['--cli', '-c', '--console']:
+        # 命令行模式
+        run_cli()
+    else:
+        # GUI模式（默认）
+        run_gui()
 
 
 if __name__ == "__main__":

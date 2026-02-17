@@ -1,4 +1,12 @@
+# AI模型API
 openai>=1.3.0
+
+# 环境变量管理
 python-dotenv>=1.0.0
+
+# HTTP请求
 requests>=2.31.0
+
+# GUI界面（Python内置，无需安装）
+# tkinter - 已包含在Python标准库中
 
